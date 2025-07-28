@@ -1,0 +1,25 @@
+[workspace]
+
+[package]
+name = "budget-api"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+strip = true
+codegen-units = 1
+opt-level = 3
+lto = "thin"
+
+[dependencies]
+anyhow = "1.0.98"
+async-trait = "0.1.88"
+axum = { version = "0.8.4", features = ["macros"] }
+extend = "1.2.0"
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.141"
+sqlx = { version = "0.8.6", features = ["sqlite", "runtime-tokio", "uuid", "chrono"] }
+strum = { version = "0.27.2", features = ["derive"] }
+strum_macros = "0.27.2"
+thiserror = "2.0.12"
+tokio = { version = "1.47.0", features = ["full"] }
